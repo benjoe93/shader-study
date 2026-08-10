@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-  Create a new shader sketch by copying _blank.
+  Create a new 3D shader sketch by copying _templates\_blank_3D.
 
 .EXAMPLE
-  .\new.ps1 001-uv-colors
+  .\new_shader_3D.ps1 04_Suzanne
 #>
 param(
   [Parameter(Mandatory)]
@@ -12,7 +12,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$template = Join-Path $PSScriptRoot '_blank'
+$template = Join-Path $PSScriptRoot '_templates\_blank_3D'
 $dest = Join-Path $PSScriptRoot $Name
 
 if (-not (Test-Path $template)) {
@@ -25,8 +25,7 @@ if (Test-Path $dest) {
 Copy-Item $template $dest -Recurse
 
 $indexPath = Join-Path $dest 'index.html'
-$html = (Get-Content $indexPath -Raw).Replace('<title>_blank</title>', "<title>$Name</title>")
+$html = (Get-Content $indexPath -Raw).Replace('<title>_blank_3D</title>', "<title>$Name</title>")
 Set-Content $indexPath $html -NoNewline
 
-Write-Host "Created $dest"
-Write-Host "Right-click $Name\index.html -> Open with Live Server"
+Write-Host "Created $Name: $dest"
