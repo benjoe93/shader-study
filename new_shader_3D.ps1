@@ -28,4 +28,4 @@ $indexPath = Join-Path $dest 'index.html'
 $html = (Get-Content $indexPath -Raw).Replace('<title>_blank_3D</title>', "<title>$Name</title>")
 Set-Content $indexPath $html -NoNewline
 
-Write-Host "Created $Name: $dest"
+Write-Host "Created ${Name}: $dest"
