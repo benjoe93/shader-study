@@ -1,1 +1,2 @@
-python -m http.server 5500
+$port = 5500
+python -m http.server $port
