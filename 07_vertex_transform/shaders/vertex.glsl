@@ -18,7 +18,7 @@ void main() {
 
   // World space -- correct for rigid transforms, not for non-uniform scale.
   vNormal = (modelMatrix * vec4(normal, 0.0)).xyz;
-  vWSPosition = (modelMatrix * vec4(position, 1.0)).xyz;
+  vWSPosition = (modelMatrix * vec4(local_space_position, 1.0)).xyz;
   vUv = uv;
 }
 
