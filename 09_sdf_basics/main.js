@@ -3,8 +3,8 @@ import * as THREE from 'three';
 const load = (path) => fetch(new URL(path, import.meta.url)).then((r) => r.text());
 
 const [vertexShader, fragmentShader] = await Promise.all([
-  load('./shaders/vertex.glsl'),
-  load('./shaders/fragment.glsl'),
+  load('./shaders/vertex.vert'),
+  load('./shaders/fragment.frag'),
 ]);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
